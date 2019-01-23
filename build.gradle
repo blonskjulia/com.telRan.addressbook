@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+apply plugin: 'project-report'
+
+group 'com.telRan.addressbook'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.testng:testng:6.14.3'
+}
+test{
+    useTestNG{
+        suites 'src/test/resources/testng.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty 'browser',"${browser}"
+    }
+}
