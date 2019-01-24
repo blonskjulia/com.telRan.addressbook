@@ -6,25 +6,25 @@ import java.util.NoSuchElementException;
 
 public class HelperBase {
 
-    public WebDriver driver;
+    public WebDriver wd;
 
-    public HelperBase(WebDriver driver) {
-        this.driver = driver;
+    public HelperBase(WebDriver wd) {
+        this.wd = wd;
     }
 
     public void click(By locator) {
-        ApplicationManager.driver.findElement(locator).click();
+        wd.findElement(locator).click();
     }
 
     protected void type(By locator, String text) {
         click(locator);
-        ApplicationManager.driver.findElement(locator).clear();
-        ApplicationManager.driver.findElement(locator).sendKeys(text);
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
     }
 
     public boolean isElementPresent(By locator) {
         try {
-            ApplicationManager.driver.findElement(locator);
+            wd.findElement(locator);
             return true;
         } catch (NoSuchElementException e) {
             return false;

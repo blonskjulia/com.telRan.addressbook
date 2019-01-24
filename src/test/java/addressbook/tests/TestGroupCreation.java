@@ -1,8 +1,8 @@
 package addressbook.tests;
 
 import addressbook.model.Group;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class TestGroupCreation extends TestBase {
     @Test

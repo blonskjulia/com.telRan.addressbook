@@ -8,9 +8,15 @@ import java.util.NoSuchElementException;
 
 public class GroupHelper extends HelperBase {
 
-    public GroupHelper(WebDriver driver) {
-        super(driver);
+
+    public GroupHelper(WebDriver wd) {
+        super(wd);
+
     }
+
+    // public GroupHelper(WebDriver driver) {
+//        super(driver);
+//    }
 
     public void returnToGroupsPage() {
         click(By.cssSelector("i a[href='group.php']"));
@@ -25,7 +31,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public void selectGroupByIndex(int index) {
-        ApplicationManager.driver.findElements(By.name("selected[]")).get(index).click();
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void openGroupsPage() {
@@ -58,7 +64,7 @@ public class GroupHelper extends HelperBase {
 
     public boolean isElementPresent(By locator) {
         try {
-            ApplicationManager.driver.findElement(locator);
+            wd.findElement(locator);
             return true;
         } catch (NoSuchElementException e) {
             return false;
@@ -80,7 +86,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public int getGroupsCount() {
-        return ApplicationManager.driver.findElements(By.name("selected[]")).size();
+        return wd.findElements(By.name("selected[]")).size();
     }
 
 

@@ -1,12 +1,14 @@
 package addressbook.tests;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+;
 
 public class TestGroupDelition extends TestBase
 {
-    @Before()
+    @BeforeMethod()
     public void preconditions()
     {
         app.getGroupHelper().openGroupsPage();
